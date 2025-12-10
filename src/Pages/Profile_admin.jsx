@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Navbar from "../Components/Navbar";
 import Profil_icon from "../assets/Profile_img.png";
-import ActivityChart from "../components/ActivityChart";
+import ActivityChart from "../Components/ActivityChart";
 
 export default class Profile_admin extends Component {
   render() {

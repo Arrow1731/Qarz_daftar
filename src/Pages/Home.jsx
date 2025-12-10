@@ -6,9 +6,7 @@ export default class Home extends Component {
     return (
       <div>
         <Navbar></Navbar>
-        <div className='container font-lato'>
-          
-        </div>
+        <div className='container'></div>
       </div>
     )
   }
