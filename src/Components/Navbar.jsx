@@ -17,7 +17,7 @@ function Navigation() {
           <ul className="text-[25px] font-bold flex gap-[50px]">
             <li><a href="#!">Bosh Sahifa</a></li>
             <li><a href="#!">Qarzdorlar ro’yxati</a></li>
-            <select name="UZ" id="Lanmg_change">
+            <select className="bg-[#003E3D]" name="UZ" id="Lang_change">
               <option value="Uz">Uz</option>
               <option value="Ru">Ru</option>
               <option value="En">En</option>

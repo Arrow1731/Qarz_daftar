@@ -28,9 +28,19 @@ export default class Home extends Component {
                 <h2 className='text-[25px] font-bold text-[#fff]'>Bugungi eslatmalar</h2>
               </div>
             </div>
-            <div className='mt-[37px]'>
+            <div className='mt-[37px] flex'>
               <div>
                 <img className='bg-[#fff] p-[29px] rounded-[20px] ' src={home_static} alt="" />
+              </div>
+
+              <div>
+                  <p>Mahsulotlar bo’yicha qarz taqsimoti</p>
+                  <div>
+                    <div>
+                      <h2>Umumiy</h2>
+                      <p>qarzlar</p>
+                    </div>
+                  </div>
               </div>
             </div>
           </div>
