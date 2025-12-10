@@ -5,18 +5,25 @@ export default class Login extends Component {
         return (
             <div>
                 <div className="container">
-                    <div className='max-w-[641px] w-full h-[780px] bg-[#fff] rounded-[15px] mt-[122px]'>
+                    <div className='max-w-[641px] w-full bg-[#fff] rounded-[15px] mt-[122px] p-[90px]'>
                         <div className='text-center pt-[90px]'>
                             <h2 className='text-[35px] font-bold'>Qarz Daftari</h2>
-                            <p className='text-[25px]'>Tizimga kirish</p>
+                            <p className='text-[25px] mb-[64px]'>Tizimga kirish</p>
                         </div>
 
                         {/* Inputs */}
 
                         <div>
                             <form action="#!">
-                                <label htmlFor="Email">Elektron pochta</label><br />
-                                <input type="email" name="email" id="el_pochta" />
+                                <div>
+                                <label className='text-[20px]' htmlFor="Email">Elektron pochta</label><br />
+                                <input className='py-[19px] mt-[13px] px-[24px] w-full rounded-[15px] text-[20px] border-2 border-[#BBBBBB]' placeholder='demo123@gmail.com' type="email" name="email" id="el_pochta" />
+                                </div>
+
+                                <div>
+                                <label className='text-[20px]' htmlFor="Email">Elektron pochta</label><br />
+                                <input className='py-[19px] mt-[13px] px-[24px] w-full rounded-[15px] text-[20px] border-2 border-[#BBBBBB]' placeholder='demo123@gmail.com' type="email" name="email" id="el_pochta" />
+                                </div>
                             </form>
                         </div>
                     </div>
