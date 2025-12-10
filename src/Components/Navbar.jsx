@@ -22,7 +22,7 @@ function Navigation() {
               <option value="Ru">Ru</option>
               <option value="En">En</option>
             </select>
-            <li><a href="#!"><img className="max-w-[48px] w-full" src={Profile_icon} alt="" /></a></li>
+            <li><a href="/Profile_admin"><img className="max-w-[48px] w-full" src={Profile_icon} alt="" /></a></li>
           </ul>
         </div>
       </div>
