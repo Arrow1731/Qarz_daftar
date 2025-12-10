@@ -26,7 +26,7 @@ export default class Login extends Component {
                                 {/* Buttons */}
 
                                 <div>
-                                    <button className='bg-[#D1A84B] max-w-[455px] w-full h-[50px] rounded-[15px] mt-[35px] text-[23px] text-center py-[5px]' type="button"><a href="#!">Kirish</a></button><br />
+                                    <button className='bg-[#D1A84B] max-w-[455px] w-full h-[50px] rounded-[15px] mt-[35px] text-[23px] text-center py-[5px] text-[#fff]' type="button"><a href="#!">Kirish</a></button><br />
                                     <button className=' max-w-[455px] w-full h-[50px] rounded-[15px] border-[2px] border-[#D1A84B] text-[#D1A84B] mt-[22px] text-[23px] text-center py-[5px]' type="button"><a href="/Register">Ro’yxatdan o’tish</a></button>
                                 </div>
                             </form>
