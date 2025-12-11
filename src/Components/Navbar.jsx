@@ -6,7 +6,7 @@ import Profil_icon from "../assets/Profile_img.png";
 function Navigation() {
   return (
     <div className="bg-[#003E3D] w-full h-[85px] text-[#fff]">
-      <div className="nav_content flex justify-evenly items-center pt-[20px]">
+      <div className=" container nav_content flex justify-evenly items-center pt-[20px]">
         <div className="flex items-center gap-[14px] text-[25px] font-bold">
           <img src={Logo_img} alt="" />
           <a href="#!">Qarz daftar</a>
