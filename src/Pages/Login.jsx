@@ -5,24 +5,16 @@ export default class Login extends Component {
         return (
             <div>
                 <div className="container">
-                    <div className='max-w-[641px] w-full bg-[#fff] rounded-[15px] mt-[122px] p-[90px]'>
-                        <div className='text-center pt-[90px]'>
+                    <div className='max-w-[641px] w-full h-[780px] bg-[#fff] rounded-[15px] mt-[122px] py-[90px]'>
+                        <div className='text-center'>
                             <h2 className='text-[35px] font-bold'>Qarz Daftari</h2>
                             <p className='text-[25px] mb-[64px]'>Tizimga kirish</p>
                         </div>
 
                         {/* Inputs */}
 
-                        <div className='container px-[93px] py-[70px]'>
+                        <div className='container px-[93px]'>
                             <form action="#!">
-                                <div>
-                                <label className='text-[20px]' htmlFor="Email">Elektron pochta</label><br />
-                                <input className='py-[19px] mt-[13px] px-[24px] w-full rounded-[15px] text-[20px] border-2 border-[#BBBBBB]' placeholder='demo123@gmail.com' type="email" name="email" id="el_pochta" />
-                                </div>
-
-                                <label className='text-[20px]' htmlFor="Email">Elektron pochta</label><br />
-                                <input className='py-[19px] mt-[13px] px-[24px] w-full rounded-[15px] text-[20px] border-2 border-[#BBBBBB]' placeholder='demo123@gmail.com' type="email" name="email" id="el_pochta" />
-
                                 <label className='text-[23px]' htmlFor="Email">Elektron pochta</label><br />
                                 <input className='max-w-[486px] w-full h-[50px] py-[10px] px-[24px] border-[2px] rounded-[15px] mt-[15px]' type="email" name="email" id="el_pochta" placeholder='demo123@gmail.com' /><br /><br />
                                 <label className='text-[23px]' htmlFor="password">Parol</label><br />
@@ -34,7 +26,7 @@ export default class Login extends Component {
                                 {/* Buttons */}
 
                                 <div>
-                                    <button className='bg-[#D1A84B] max-w-[455px] w-full h-[50px] rounded-[15px] mt-[35px] text-[23px] text-center py-[5px] text-[#fff]' type="button"><a href="#!">Kirish</a></button><br />
+                                    <button className='bg-[#D1A84B] max-w-[455px] w-full h-[50px] rounded-[15px] mt-[35px] text-[23px] text-center py-[5px] text-[#fff]' type="button"><a href="/Home">Kirish</a></button><br />
                                     <button className=' max-w-[455px] w-full h-[50px] rounded-[15px] border-[2px] border-[#D1A84B] text-[#D1A84B] mt-[22px] text-[23px] text-center py-[5px]' type="button"><a href="/Register">Ro’yxatdan o’tish</a></button>
 
                                 </div>

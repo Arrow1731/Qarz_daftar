@@ -5,7 +5,8 @@ import Profile from "./Pages/Profile_admin";
 import NotFound from "./Pages/NotFound";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
-import Reset_pass from "./Pages/Reset_pass"
+import Reset_pass from "./Pages/Reset_pass";
+import Loan_alert from "./Pages/Loan_alerts";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <Route path="/Register" element={<Register />} />
         <Route path="/Reset_pass" element={<Reset_pass/>}/>
         <Route path="/Home" element={<Home />} />  
-        <Route path="/List_Qarz" element={<Lists />} />        
+        <Route path="/List_Qarz" element={<Lists />} />  
+        <Route path="/Loan_alerts" element={<Loan_alert/>}/>      
         <Route path="/Profile_admin" element={<Profile />} />
 
         {/* 404 page */}

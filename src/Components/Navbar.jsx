@@ -1,7 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Logo_img from "../assets/react.svg";
-import Profile_icon from "../assets/prof_ic.svg";
+// import Profile_icon from "../assets/prof_ic.svg";
+import Profil_icon from "../assets/Profile_img.png";
 function Navigation() {
   return (
     <div className="bg-[#003E3D] w-full h-[85px] text-[#fff]">
@@ -14,15 +15,15 @@ function Navigation() {
         {/* UL links */}
 
         <div className="nav_items">
-          <ul className="text-[25px] font-bold flex gap-[50px]">
+          <ul className="text-[25px] flex gap-[50px]">
             <li><a href="#!">Bosh Sahifa</a></li>
             <li><a href="#!">Qarzdorlar ro’yxati</a></li>
-            <select className="bg-[#003E3D]" name="UZ" id="Lang_change">
-              <option value="Uz">Uz</option>
-              <option value="Ru">Ru</option>
-              <option value="En">En</option>
+            <select className="bg-[#003E3D] outline-none" name="UZ" id="Lang_change">
+              <option value="Uz">UZ</option>
+              <option value="Ru">RU</option>
+              <option value="En">EN</option>
             </select>
-            <li><a href="/Profile_admin"><img className="max-w-[48px] w-full" src={Profile_icon} alt="" /></a></li>
+            <li><a href="/Profile_admin"><img className="max-w-[48px] w-full" src={Profil_icon} alt="" /></a></li>
           </ul>
         </div>
       </div>
