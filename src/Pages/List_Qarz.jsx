@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 // Companents{
 import Navbar from "../Components/Navbar";
-
 // }
 
 // Icons{

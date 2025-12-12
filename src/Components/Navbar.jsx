@@ -16,8 +16,8 @@ function Navigation() {
 
         <div className="nav_items">
           <ul className="text-[25px] flex gap-[50px]">
-            <li><a href="#!">Bosh Sahifa</a></li>
-            <li><a href="#!">Qarzdorlar ro’yxati</a></li>
+            <li><a href="/Home">Bosh Sahifa</a></li>
+            <li><a href="/List_Qarz">Qarzdorlar ro’yxati</a></li>
             <select className="bg-[#003E3D] outline-none" name="UZ" id="Lang_change">
               <option value="Uz">UZ</option>
               <option value="Ru">RU</option>
