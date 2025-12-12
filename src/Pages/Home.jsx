@@ -349,6 +349,7 @@ export default class Home extends Component {
 
     this.state = {
       showModal: false,
+      minus: false,
     };
   }
 
@@ -358,6 +359,15 @@ export default class Home extends Component {
 
   closeModal = () => {
     this.setState({ showModal: false });
+  };
+
+
+  minusOpen = () => {
+    this.setState({ minusModal: true });
+  };
+
+  minusClose = () => {
+    this.setState({ minusModal: false });
   };
 
   render() {
@@ -515,7 +525,180 @@ export default class Home extends Component {
               <div className='text-center w-[210px] mt-[20px]'>
                 <h2 className="text-stone-500 text-xl font-bold mb-[25px]">iPhone 14 pro</h2>
 
-                <button className='flex gap-[13px] items-center text-[25px] font-semibold bg-[#FF0004] px-[15px] py-[11px] rounded-[15px]'>
+                <button
+                  onClick={this.minusOpen}
+                 className='flex gap-[13px] items-center text-[25px] font-semibold bg-[#FF0004] px-[15px] py-[11px] rounded-[15px]'>
+                  <CircleMinus /> Qarz ayirish
+                </button>
+              </div>
+
+              {/* SUM */}
+              <div className='text-center w-[210px] mt-[20px]'>
+                <h2 className="text-stone-500 text-xl font-bold mb-[25px]">
+                  2,500,000 so’m
+                </h2>
+
+                <button className='flex gap-[17px] items-center text-[25px] font-semibold border-2 border-[#000] px-[30px] py-[11px] rounded-[15px] text-[#000]'>
+                  <Clock /> Tarix
+                </button>
+              </div>
+
+              {/* STATUS */}
+              <div className='text-center w-[210px] mt-[20px]'>
+                <h2 className="text-stone-500 text-xl font-bold mb-[25px]">19.09.2025</h2>
+
+                <button className='flex gap-[4px] items-center text-[25px] font-semibold bg-[#FFCFCF] px-[15px] py-[11px] rounded-[15px] text-[#FF0000]'>
+                  To’lanmagan
+                </button>
+              </div>
+
+            </div>
+            <div className='flex justify-between text-[#fff] px-[35px] border-b-2 pb-[25px]'>
+
+              {/* NAME */}
+              <div className='text-center w-[155px] mt-[20px]'>
+                <h2 className="text-black text-xl font-bold mb-[25px]">Ali Valiyev</h2>
+
+                <button className='flex gap-[4px] items-center text-[25px] font-semibold bg-[#00D73D] px-[11px] py-[11px] rounded-[15px]'>
+                  <Check /> To'landi
+                </button>
+              </div>
+
+              {/* PHONE */}
+              <div className='text-center w-[210px] mt-[20px]'>
+                <h2 className="text-stone-500 text-xl font-bold mb-[25px]">
+                  +998 90 123 45 67
+                </h2>
+
+                <button
+                  onClick={this.openModal}
+                  className='flex gap-[4px] items-center text-[25px] font-semibold bg-[#443EFF] px-[15px] py-[11px] rounded-[15px]'
+                >
+                  <Plus /> Qarz qo’shish
+                </button>
+              </div>
+
+              {/* PRODUCT */}
+              <div className='text-center w-[210px] mt-[20px]'>
+                <h2 className="text-stone-500 text-xl font-bold mb-[25px]">iPhone 14 pro</h2>
+
+                <button
+                  onClick={this.minusOpen}
+                 className='flex gap-[13px] items-center text-[25px] font-semibold bg-[#FF0004] px-[15px] py-[11px] rounded-[15px]'>
+                  <CircleMinus /> Qarz ayirish
+                </button>
+              </div>
+
+              {/* SUM */}
+              <div className='text-center w-[210px] mt-[20px]'>
+                <h2 className="text-stone-500 text-xl font-bold mb-[25px]">
+                  2,500,000 so’m
+                </h2>
+
+                <button className='flex gap-[17px] items-center text-[25px] font-semibold border-2 border-[#000] px-[30px] py-[11px] rounded-[15px] text-[#000]'>
+                  <Clock /> Tarix
+                </button>
+              </div>
+
+              {/* STATUS */}
+              <div className='text-center w-[210px] mt-[20px]'>
+                <h2 className="text-stone-500 text-xl font-bold mb-[25px]">19.09.2025</h2>
+
+                <button className='flex gap-[4px] items-center text-[25px] font-semibold bg-[#FFCFCF] px-[15px] py-[11px] rounded-[15px] text-[#FF0000]'>
+                  To’lanmagan
+                </button>
+              </div>
+
+            </div>
+            <div className='flex justify-between text-[#fff] px-[35px] border-b-2 pb-[25px]'>
+
+              {/* NAME */}
+              <div className='text-center w-[155px] mt-[20px]'>
+                <h2 className="text-black text-xl font-bold mb-[25px]">Ali Valiyev</h2>
+
+                <button className='flex gap-[4px] items-center text-[25px] font-semibold bg-[#00D73D] px-[11px] py-[11px] rounded-[15px]'>
+                  <Check /> To'landi
+                </button>
+              </div>
+
+              {/* PHONE */}
+              <div className='text-center w-[210px] mt-[20px]'>
+                <h2 className="text-stone-500 text-xl font-bold mb-[25px]">
+                  +998 90 123 45 67
+                </h2>
+
+                <button
+                  onClick={this.openModal}
+                  className='flex gap-[4px] items-center text-[25px] font-semibold bg-[#443EFF] px-[15px] py-[11px] rounded-[15px]'
+                >
+                  <Plus /> Qarz qo’shish
+                </button>
+              </div>
+
+              {/* PRODUCT */}
+              <div className='text-center w-[210px] mt-[20px]'>
+                <h2 className="text-stone-500 text-xl font-bold mb-[25px]">iPhone 14 pro</h2>
+
+                <button
+                  onClick={this.minusOpen}
+                 className='flex gap-[13px] items-center text-[25px] font-semibold bg-[#FF0004] px-[15px] py-[11px] rounded-[15px]'>
+                  <CircleMinus /> Qarz ayirish
+                </button>
+              </div>
+
+              {/* SUM */}
+              <div className='text-center w-[210px] mt-[20px]'>
+                <h2 className="text-stone-500 text-xl font-bold mb-[25px]">
+                  2,500,000 so’m
+                </h2>
+
+                <button className='flex gap-[17px] items-center text-[25px] font-semibold border-2 border-[#000] px-[30px] py-[11px] rounded-[15px] text-[#000]'>
+                  <Clock /> Tarix
+                </button>
+              </div>
+
+              {/* STATUS */}
+              <div className='text-center w-[210px] mt-[20px]'>
+                <h2 className="text-stone-500 text-xl font-bold mb-[25px]">19.09.2025</h2>
+
+                <button className='flex gap-[4px] items-center text-[25px] font-semibold bg-[#FFCFCF] px-[15px] py-[11px] rounded-[15px] text-[#FF0000]'>
+                  To’lanmagan
+                </button>
+              </div>
+
+            </div>
+            <div className='flex justify-between text-[#fff] px-[35px] border-b-2 pb-[25px]'>
+
+              {/* NAME */}
+              <div className='text-center w-[155px] mt-[20px]'>
+                <h2 className="text-black text-xl font-bold mb-[25px]">Ali Valiyev</h2>
+
+                <button className='flex gap-[4px] items-center text-[25px] font-semibold bg-[#00D73D] px-[11px] py-[11px] rounded-[15px]'>
+                  <Check /> To'landi
+                </button>
+              </div>
+
+              {/* PHONE */}
+              <div className='text-center w-[210px] mt-[20px]'>
+                <h2 className="text-stone-500 text-xl font-bold mb-[25px]">
+                  +998 90 123 45 67
+                </h2>
+
+                <button
+                  onClick={this.openModal}
+                  className='flex gap-[4px] items-center text-[25px] font-semibold bg-[#443EFF] px-[15px] py-[11px] rounded-[15px]'
+                >
+                  <Plus /> Qarz qo’shish
+                </button>
+              </div>
+
+              {/* PRODUCT */}
+              <div className='text-center w-[210px] mt-[20px]'>
+                <h2 className="text-stone-500 text-xl font-bold mb-[25px]">iPhone 14 pro</h2>
+
+                <button
+                  onClick={this.minusOpen}
+                 className='flex gap-[13px] items-center text-[25px] font-semibold bg-[#FF0004] px-[15px] py-[11px] rounded-[15px]'>
                   <CircleMinus /> Qarz ayirish
                 </button>
               </div>
@@ -543,6 +726,8 @@ export default class Home extends Component {
             </div>
           </div>
         </div>
+
+        
 
         {/* MODAL */}
         {this.state.showModal && (
@@ -615,6 +800,117 @@ export default class Home extends Component {
             </div>
           </div>
         )}
+
+
+
+
+        {this.state.minusModal && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+            <div className="bg-white w-full max-w-md rounded-2xl p-5 shadow-xl">
+
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-xl font-semibold">Qarz ayirish</h2>
+
+                <button onClick={this.minusClose} className="text-2xl">
+                  ×
+                </button>
+              </div>
+
+              {/* USER BOX */}
+              <div className="bg-gray-100 rounded-xl p-4 mb-5">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+
+                    <div className="w-12 h-12 bg-yellow-300 rounded-full flex items-center justify-center text-xl">
+                      👤
+                    </div>
+
+                    <div>
+                      <h3 className="font-semibold">Ali Valiyev</h3>
+                      <p className="text-sm text-gray-500">+998 90 123 45 67</p>
+                    </div>
+
+                  </div>
+                  <p className="text-sm text-gray-600">19.09.2025</p>
+                </div>
+
+                <hr className="my-3" />
+
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-blue-600 font-medium">Oldingi qarzi</span>
+                  <span className="text-gray-600">2,500,000 so’m</span>
+                </div>
+
+              </div>
+
+              {/* INPUTS */}
+              <div className="space-y-3">
+
+                <input
+                  type="number"
+                  placeholder="Qarz summasi..."
+                  className="w-full p-3 bg-gray-100 rounded-xl outline-none"
+                />
+
+                <input
+                  type="text"
+                  placeholder="Mahsulot nomi..."
+                  className="w-full p-3 bg-gray-100 rounded-xl outline-none"
+                />
+
+                <input
+                  type="date"
+                  className="w-full p-3 bg-gray-100 rounded-xl outline-none"
+                />
+
+              </div>
+
+              <button
+                className="w-full mt-5 bg-green-500 p-3 rounded-xl text-white font-semibold text-lg"
+              >
+                Qo’shish
+              </button>
+
+            </div>
+          </div>
+        )}
+
+
+        <div className="w-[1312px] h-[908px] bg-white rounded-[40px] container p-[39px]">
+          <div className='flex items-center justify-between mb-[49px]'>
+            <h2 className="justify-start text-black text-4xl font-bold">Ali Valiyev - Qarz tarixi</h2>
+            <button onClick={this.close} className="text-[50px]">
+                  ×
+                </button>
+          </div>
+
+          <div className='flex justify-between items-center'>
+            <div className="w-96 h-24 bg-white rounded-[20px] border-2 border-zinc-400/75 px-[45px] py-[15px]" >
+            <p className="justify-start text-black text-xl font-normal">Jami olgan</p>
+            <h2 className="justify-start text-red-600 text-2xl font-bold">4,500,000 so’m</h2>
+            </div>
+            <div className="w-96 h-24 bg-white rounded-[20px] border-2 border-zinc-400/75 px-[45px] py-[15px]" >
+            <p className="justify-start text-black text-xl font-normal">Joriy qarz</p>
+            <h2 className="justify-start text-indigo-700 text-2xl font-bold">2,500,000 so’m</h2>
+            </div>
+            <div className="w-96 h-24 bg-white rounded-[20px] border-2 border-zinc-400/75 px-[45px] py-[15px]" >
+            <p className="justify-start text-black text-xl font-normal">Sro’q</p>
+            <h2 className="justify-start text-purple-600 text-2xl font-bold">2,500,000 so’m</h2>
+            </div>
+          </div>
+
+          <div className="w-full bg-white rounded-[20px] border-2 border-zinc-400 mt-[40px] px-[29px] py-[40px]" >
+<h2 className="justify-start text-black text-2xl font-bold mb-[30px]">Mijoz ma’lumotlari</h2>
+
+<div>
+        <div>
+          <p className="justify-start text-neutral-500 text-xl font-normal">To’liq ism</p>
+          <h className="justify-start text-black text-xl font-bold">Ali Valiyev</h>
+        </div>
+</div>
+          </div>
+
+        </div>
 
       </div>
     );
