@@ -21,7 +21,7 @@ export default class List_Qarz extends Component {
         <Navbar></Navbar>
 
       <div className='container'>
-         <div className='bg-[#FFFFFF] rounded-[20px] py-[17px] px-[25px]'>
+         <div className='bg-[#FFFFFF] rounded-[20px] py-[17px] px-[25px] mt-[40px]'>
                     <h1 className='text-[25px] font-bold text-[#000] text-center'>So’nggi qarzdorlar ro’yxati</h1>
                     <div className='flex gap-[25px] items-center mt-[40px] justify-between'>
                       <button className='flex gap-[4px] items-center text-[20px] font-normal bg-[#F5F5F5] py-[13px] px-[6px] rounded-[15px]'><Download />PDF / Excel</button>
