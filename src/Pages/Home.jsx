@@ -341,7 +341,7 @@ import Navbar from "../Components/Navbar";
 import home_static from '../assets/home_page_statis.png';
 
 // Icons
-import { Search, Download, ArrowRight, Check, Plus, CircleMinus, Clock } from 'lucide-react';
+import { Search, Download, ArrowRight, Check, Plus, CircleMinus, Clock, Calendar  } from 'lucide-react';
 
 export default class Home extends Component {
   constructor(props) {
@@ -349,7 +349,8 @@ export default class Home extends Component {
 
     this.state = {
       showModal: false,
-      minus: false,
+      minusModal: false,
+      historyModal: false,
     };
   }
 
@@ -368,6 +369,15 @@ export default class Home extends Component {
 
   minusClose = () => {
     this.setState({ minusModal: false });
+  };
+
+
+  historyOpen = () => {
+    this.setState({ historyModal: true });
+  };
+
+  historyClose = () => {
+    this.setState({ historyModal: false });
   };
 
   render() {
@@ -527,7 +537,7 @@ export default class Home extends Component {
 
                 <button
                   onClick={this.minusOpen}
-                 className='flex gap-[13px] items-center text-[25px] font-semibold bg-[#FF0004] px-[15px] py-[11px] rounded-[15px]'>
+                  className='flex gap-[13px] items-center text-[25px] font-semibold bg-[#FF0004] px-[15px] py-[11px] rounded-[15px]'>
                   <CircleMinus /> Qarz ayirish
                 </button>
               </div>
@@ -538,7 +548,7 @@ export default class Home extends Component {
                   2,500,000 so’m
                 </h2>
 
-                <button className='flex gap-[17px] items-center text-[25px] font-semibold border-2 border-[#000] px-[30px] py-[11px] rounded-[15px] text-[#000]'>
+                <button onClick={this.historyOpen} className='flex gap-[17px] items-center text-[25px] font-semibold border-2 border-[#000] px-[30px] py-[11px] rounded-[15px] text-[#000]'>
                   <Clock /> Tarix
                 </button>
               </div>
@@ -584,7 +594,7 @@ export default class Home extends Component {
 
                 <button
                   onClick={this.minusOpen}
-                 className='flex gap-[13px] items-center text-[25px] font-semibold bg-[#FF0004] px-[15px] py-[11px] rounded-[15px]'>
+                  className='flex gap-[13px] items-center text-[25px] font-semibold bg-[#FF0004] px-[15px] py-[11px] rounded-[15px]'>
                   <CircleMinus /> Qarz ayirish
                 </button>
               </div>
@@ -595,7 +605,7 @@ export default class Home extends Component {
                   2,500,000 so’m
                 </h2>
 
-                <button className='flex gap-[17px] items-center text-[25px] font-semibold border-2 border-[#000] px-[30px] py-[11px] rounded-[15px] text-[#000]'>
+                <button onClick={this.historyOpen} className='flex gap-[17px] items-center text-[25px] font-semibold border-2 border-[#000] px-[30px] py-[11px] rounded-[15px] text-[#000]'>
                   <Clock /> Tarix
                 </button>
               </div>
@@ -641,7 +651,7 @@ export default class Home extends Component {
 
                 <button
                   onClick={this.minusOpen}
-                 className='flex gap-[13px] items-center text-[25px] font-semibold bg-[#FF0004] px-[15px] py-[11px] rounded-[15px]'>
+                  className='flex gap-[13px] items-center text-[25px] font-semibold bg-[#FF0004] px-[15px] py-[11px] rounded-[15px]'>
                   <CircleMinus /> Qarz ayirish
                 </button>
               </div>
@@ -652,7 +662,7 @@ export default class Home extends Component {
                   2,500,000 so’m
                 </h2>
 
-                <button className='flex gap-[17px] items-center text-[25px] font-semibold border-2 border-[#000] px-[30px] py-[11px] rounded-[15px] text-[#000]'>
+                <button onClick={this.historyOpen} className='flex gap-[17px] items-center text-[25px] font-semibold border-2 border-[#000] px-[30px] py-[11px] rounded-[15px] text-[#000]'>
                   <Clock /> Tarix
                 </button>
               </div>
@@ -698,7 +708,7 @@ export default class Home extends Component {
 
                 <button
                   onClick={this.minusOpen}
-                 className='flex gap-[13px] items-center text-[25px] font-semibold bg-[#FF0004] px-[15px] py-[11px] rounded-[15px]'>
+                  className='flex gap-[13px] items-center text-[25px] font-semibold bg-[#FF0004] px-[15px] py-[11px] rounded-[15px]'>
                   <CircleMinus /> Qarz ayirish
                 </button>
               </div>
@@ -709,7 +719,7 @@ export default class Home extends Component {
                   2,500,000 so’m
                 </h2>
 
-                <button className='flex gap-[17px] items-center text-[25px] font-semibold border-2 border-[#000] px-[30px] py-[11px] rounded-[15px] text-[#000]'>
+                <button onClick={this.historyOpen} className='flex gap-[17px] items-center text-[25px] font-semibold border-2 border-[#000] px-[30px] py-[11px] rounded-[15px] text-[#000]'>
                   <Clock /> Tarix
                 </button>
               </div>
@@ -727,7 +737,7 @@ export default class Home extends Component {
           </div>
         </div>
 
-        
+
 
         {/* MODAL */}
         {this.state.showModal && (
@@ -874,43 +884,85 @@ export default class Home extends Component {
             </div>
           </div>
         )}
-
-
-        <div className="w-[1312px] h-[908px] bg-white rounded-[40px] container p-[39px]">
+        {this.state.historyModal && (
+          <div className='fixed inset-0 bg-black/50 z-20'>
+          <div className="w-full bg-white rounded-[40px] container p-[15px]">
           <div className='flex items-center justify-between mb-[49px]'>
             <h2 className="justify-start text-black text-4xl font-bold">Ali Valiyev - Qarz tarixi</h2>
-            <button onClick={this.close} className="text-[50px]">
-                  ×
-                </button>
+            <button onClick={this.historyClose} className="text-[50px]">
+              ×
+            </button>
           </div>
 
           <div className='flex justify-between items-center'>
             <div className="w-96 h-24 bg-white rounded-[20px] border-2 border-zinc-400/75 px-[45px] py-[15px]" >
-            <p className="justify-start text-black text-xl font-normal">Jami olgan</p>
-            <h2 className="justify-start text-red-600 text-2xl font-bold">4,500,000 so’m</h2>
+              <p className="justify-start text-black text-xl font-normal">Jami olgan</p>
+              <h2 className="justify-start text-red-600 text-2xl font-bold">4,500,000 so’m</h2>
             </div>
             <div className="w-96 h-24 bg-white rounded-[20px] border-2 border-zinc-400/75 px-[45px] py-[15px]" >
-            <p className="justify-start text-black text-xl font-normal">Joriy qarz</p>
-            <h2 className="justify-start text-indigo-700 text-2xl font-bold">2,500,000 so’m</h2>
+              <p className="justify-start text-black text-xl font-normal">Joriy qarz</p>
+              <h2 className="justify-start text-indigo-700 text-2xl font-bold">2,500,000 so’m</h2>
             </div>
             <div className="w-96 h-24 bg-white rounded-[20px] border-2 border-zinc-400/75 px-[45px] py-[15px]" >
-            <p className="justify-start text-black text-xl font-normal">Sro’q</p>
-            <h2 className="justify-start text-purple-600 text-2xl font-bold">2,500,000 so’m</h2>
+              <p className="justify-start text-black text-xl font-normal">Sro’q</p>
+              <h2 className="justify-start text-purple-600 text-2xl font-bold">2,500,000 so’m</h2>
             </div>
           </div>
 
-          <div className="w-full bg-white rounded-[20px] border-2 border-zinc-400 mt-[40px] px-[29px] py-[40px]" >
-<h2 className="justify-start text-black text-2xl font-bold mb-[30px]">Mijoz ma’lumotlari</h2>
+          <div className="w-full bg-white rounded-[20px] border-2 border-zinc-400 mt-[40px] px-[29px] py-[40px] mb-[40px]" >
+            <h2 className="justify-start text-black text-2xl font-bold mb-[30px]">Mijoz ma’lumotlari</h2>
+          {/* </div> */}
+            <div className='flex justify-between'>
+              <div>
+                <p className="justify-start text-neutral-500 text-xl font-normal">To’liq ism</p>
+                <h2 className="justify-start text-black text-xl font-bold">Ali Valiyev</h2>
+              </div>
+              <div>
+                <p className="justify-start text-neutral-500 text-xl font-normal">Telfon raqami</p>
+                <h2 className="justify-start text-black text-xl font-bold">+998 90 123 45 67</h2>
+              </div>
+              <div>
+                <p className="justify-start text-neutral-500 text-xl font-normal">Ro’yxatga olingan sana</p>
+                <h2 className="justify-start text-black text-xl font-bold">19.09.2025, 19:50</h2>
+              </div>
+              </div>
+          </div>
 
-<div>
-        <div>
-          <p className="justify-start text-neutral-500 text-xl font-normal">To’liq ism</p>
-          <h className="justify-start text-black text-xl font-bold">Ali Valiyev</h>
-        </div>
-</div>
+          <div className='w-full py-[11px] border-[#E9E9E9] border-2 rounded-[10px] text-center mb-[30px]'>
+            <h2 className="justify-start text-black text-xl font-bold">Qarz tarixi (2)</h2>
+          </div>
+
+          <div className='w-full py-[19px] px-[20px] border-[#FF0000] bg-[#FFEFEF] border-2 rounded-[20px] text-center mb-[30px]'>
+            
+            <div className='flex gap-[19px] items-center'>
+              <span><p className='bg-[#FF0000] rounded-full text-white font-bold py-[6px] px-[14px]'>Qazr #1</p></span>
+              <p className="justify-start text-red-600 text-2xl font-bold">2,500,000 so’m</p>
+              </div>
+
+              <span className='flex items-center gap-[17px] mt-[28px]'>
+              <Calendar /> 
+              <p className="justify-start text-black text-xl font-bold">19.09.2025, 19:50</p>
+              </span>
+          </div>
+          <div className='w-full py-[19px] px-[20px] border-[#FF0000] bg-[#FFEFEF] border-2 rounded-[20px] text-center mb-[30px]'>
+            
+            <div className='flex gap-[19px] items-center'>
+              <span><p className='bg-[#FF0000] rounded-full text-white font-bold py-[6px] px-[14px]'>Qazr #1</p></span>
+              <p className="justify-start text-red-600 text-2xl font-bold">2,500,000 so’m</p>
+              </div>
+
+              <span className='flex items-center gap-[17px] mt-[28px]'>
+              <Calendar /> 
+              <p className="justify-start text-black text-xl font-bold">19.09.2025, 19:50</p>
+              </span>
           </div>
 
         </div>
+        </div>
+        )}
+
+
+        
 
       </div>
     );
