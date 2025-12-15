@@ -78,7 +78,7 @@ export default class Reset extends Component {
         return (
             <div>
                 <div className="container">
-                    <div className='max-w-[641px] w-full h-[676px] bg-[#fff] mt-[90px] rounded-[15px]'>
+                    <div className='max-w-[641px] w-full h-[676px] bg-[#fff] mt-[90px] rounded-[15px] m-auto'>
 
                         <div className='container px-[93px]'>
                             <div className='text-center pt-[90px]'>

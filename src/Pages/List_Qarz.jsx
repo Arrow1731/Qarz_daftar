@@ -135,7 +135,7 @@ export default class List_Qarz extends Component {
                                         </h2>
                         
                                         <button onClick={this.historyOpen} className='flex gap-[17px] items-center text-[25px] font-semibold border-2 border-[#000] px-[30px] py-[11px] rounded-[15px] text-[#000]'>
-                                          <Clock /> Tarix
+                                          <Clock /> Tarix 
                                         </button>
                                       </div>
                         
@@ -479,7 +479,7 @@ export default class List_Qarz extends Component {
             </div>
           </div>
         )}
-        {this.state.historyModal && (
+        {this.state.historyModal && ( 
           <div className='fixed inset-0 bg-black/50 z-20'>
           <div className="w-full bg-white rounded-[40px] container p-[15px]">
           <div className='flex items-center justify-between mb-[49px]'>

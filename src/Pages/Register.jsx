@@ -104,7 +104,7 @@ export default class Register extends Component {
       <div>
         <div>
           <div className="container">
-            <div className='max-w-[641px] w-full h-[1050px] bg-[#fff] rounded-[15px] mt-[122px]'>
+            <div className='max-w-[641px] w-full h-[1050px] bg-[#fff] rounded-[15px] mt-[122px] m-auto'>
               <div className='text-center pt-[50px]'>
                 <h2 className='text-[35px] font-bold'>Qarz Daftari</h2>
                 <p className='text-[25px]'>Hisob yaratish</p>

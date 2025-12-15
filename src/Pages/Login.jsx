@@ -79,7 +79,7 @@ export default class Login extends Component {
         return (
             <div>
                 <div className="container">
-                    <div className='max-w-[641px] w-full h-[780px] bg-[#fff] rounded-[15px] mt-[122px] py-[90px]'>
+                    <div className='max-w-[641px] w-full h-[780px] bg-[#fff] rounded-[15px] mt-[122px] py-[90px] m-auto'>
                         <div className='text-center'>
                             <h2 className='text-[35px] font-bold'>Qarz Daftari</h2>
                             <p className='text-[25px] mb-[64px]'>Tizimga kirish</p>
