@@ -597,7 +597,7 @@
 // // // //           </div>
 
 // // // //           <div className='w-full py-[19px] px-[20px] border-[#FF0000] bg-[#FFEFEF] border-2 rounded-[20px] text-center mb-[30px]'>
-            
+
 // // // //             <div className='flex gap-[19px] items-center'>
 // // // //               <span><p className='bg-[#FF0000] rounded-full text-white font-bold py-[6px] px-[14px]'>Qazr #1</p></span>
 // // // //               <p className="justify-start text-red-600 text-2xl font-bold">2,500,000 so’m</p>
@@ -609,7 +609,7 @@
 // // // //               </span>
 // // // //           </div>
 // // // //           <div className='w-full py-[19px] px-[20px] border-[#FF0000] bg-[#FFEFEF] border-2 rounded-[20px] text-center mb-[30px]'>
-            
+
 // // // //             <div className='flex gap-[19px] items-center'>
 // // // //               <span><p className='bg-[#FF0000] rounded-full text-white font-bold py-[6px] px-[14px]'>Qazr #1</p></span>
 // // // //               <p className="justify-start text-red-600 text-2xl font-bold">2,500,000 so’m</p>
@@ -626,7 +626,7 @@
 // // // //         )}
 
 
-        
+
 
 // // // //       </div>
 // // // //     );
@@ -636,250 +636,6 @@
 
 
 
-
-
-
-
-// import React, { Component } from 'react';
-// import Navbar from "../Components/Navbar";
-// import { Search, Download, ArrowRight, Check, Plus, CircleMinus, Clock } from 'lucide-react';
-// import { collection, addDoc, updateDoc, doc, getDocs } from "firebase/firestore";
-// import { db } from "../firebase";
-
-// export default class Home extends Component {
-//   constructor(props) {
-//     super(props);
-
-//     this.state = {
-//       showModal: false,
-//       minusModal: false,
-//       historyModal: false,
-//       customers: [],
-//       selectedCustomer: null,
-//       loanAmount: "",
-//       comment: "",
-//       loanDate: "",
-//       newCustomerName: "",
-//     };
-//   }
-
-//   componentDidMount() {
-//     this.fetchCustomers();
-//   }
-
-//   fetchCustomers = async () => {
-//     const querySnapshot = await getDocs(collection(db, "customers"));
-//     const customers = [];
-//     querySnapshot.forEach((doc) => {
-//       customers.push({ id: doc.id, ...doc.data() });
-//     });
-//     this.setState({ customers });
-//   }
-
-//   // MODAL FUNCTIONS
-//   openModal = (customer = null) => this.setState({ showModal: true, selectedCustomer: customer });
-//   closeModal = () => this.setState({ showModal: false, selectedCustomer: null, loanAmount: "", comment: "", loanDate: "", newCustomerName: "" });
-
-//   minusOpen = (customer) => this.setState({ minusModal: true, selectedCustomer: customer });
-//   minusClose = () => this.setState({ minusModal: false, selectedCustomer: null, loanAmount: "", comment: "", loanDate: "" });
-
-//   historyOpen = (customer) => this.setState({ historyModal: true, selectedCustomer: customer });
-//   historyClose = () => this.setState({ historyModal: false, selectedCustomer: null });
-
-//   handleAddLoan = async () => {
-//     const { selectedCustomer, loanAmount, comment, loanDate } = this.state;
-//     if (!loanAmount || !loanDate) return alert("Loan amount and date are required");
-
-//     const customerRef = doc(db, "customers", selectedCustomer.id);
-//     await updateDoc(customerRef, {
-//       loanAmount: (selectedCustomer.loanAmount || 0) + parseFloat(loanAmount),
-//       history: [
-//         ...(selectedCustomer.history || []),
-//         { type: "added", amount: parseFloat(loanAmount), comment, date: loanDate }
-//       ]
-//     });
-
-//     await this.fetchCustomers();
-//     this.closeModal();
-//   }
-
-//   handleMinusLoan = async () => {
-//     const { selectedCustomer, loanAmount, comment, loanDate } = this.state;
-//     if (!loanAmount || !loanDate) return alert("Loan amount and date are required");
-
-//     const customerRef = doc(db, "customers", selectedCustomer.id);
-//     await updateDoc(customerRef, {
-//       loanAmount: (selectedCustomer.loanAmount || 0) - parseFloat(loanAmount),
-//       history: [
-//         ...(selectedCustomer.history || []),
-//         { type: "paid", amount: parseFloat(loanAmount), comment, date: loanDate }
-//       ]
-//     });
-
-//     await this.fetchCustomers();
-//     this.minusClose();
-//   }
-
-//   handleMarkPaid = async (customer) => {
-//     if (!customer.loanAmount || customer.loanAmount <= 0) return;
-
-//     const customerRef = doc(db, "customers", customer.id);
-//     await updateDoc(customerRef, {
-//       loanAmount: 0,
-//       history: [
-//         ...(customer.history || []),
-//         { type: "paid", amount: customer.loanAmount, comment: "Marked paid", date: new Date().toISOString().split("T")[0] }
-//       ]
-//     });
-
-//     await this.fetchCustomers();
-//   }
-
-//   handleAddNewCustomer = async () => {
-//     const { newCustomerName, loanAmount, comment, loanDate } = this.state;
-//     if (!newCustomerName || !loanAmount || !loanDate) return alert("All fields are required");
-
-//     await addDoc(collection(db, "customers"), {
-//       name: newCustomerName,
-//       loanAmount: parseFloat(loanAmount),
-//       history: [{ type: "added", amount: parseFloat(loanAmount), comment, date: loanDate }]
-//     });
-
-//     await this.fetchCustomers();
-//     this.closeModal();
-//   }
-
-//   render() {
-//     const { showModal, minusModal, historyModal, customers, selectedCustomer } = this.state;
-
-//     return (
-//       <div>
-//         <Navbar />
-
-//         <div className='container font-lato'>
-//           {/* --- DASHBOARD / TABLE CODE AS BEFORE --- */}
-
-//           <div className='bg-[#FFFFFF] rounded-[20px] py-[17px] px-[25px]'>
-//             <h1 className='text-[25px] font-bold text-[#000] text-center'>So’nggi qarzdorlar ro’yxati</h1>
-
-//             <button
-//               onClick={() => this.openModal(null)}
-//               className='bg-[#D1A84BED] rounded-[30px] w-full p-[21px] text-[40px] font-extrabold text-[#fff] mt-[30px]'
-//             >
-//               + QARZ QO’SHISH
-//             </button>
-
-//             {customers.map((customer, index) => (
-//               <div key={index} className='flex justify-between text-[#fff] px-[35px] border-b-2 pb-[25px]'>
-
-//                 <div className='text-center w-[155px] mt-[20px]'>
-//                   <h2 className="text-black text-xl font-bold mb-[25px]">{customer.name}</h2>
-//                   <button
-//                     onClick={() => this.handleMarkPaid(customer)}
-//                     className='flex gap-[4px] items-center text-[25px] font-semibold bg-[#00D73D] px-[11px] py-[11px] rounded-[15px]'>
-//                     <Check /> To'landi
-//                   </button>
-//                 </div>
-
-//                 <div className='text-center w-[210px] mt-[20px]'>
-//                   <h2 className="text-stone-500 text-xl font-bold mb-[25px]">{customer.phone || "+998 90 123 45 67"}</h2>
-//                   <button onClick={() => this.openModal(customer)} className='flex gap-[4px] items-center text-[25px] font-semibold bg-[#443EFF] px-[15px] py-[11px] rounded-[15px]'>
-//                     <Plus /> Qarz qo’shish
-//                   </button>
-//                 </div>
-
-//                 <div className='text-center w-[210px] mt-[20px]'>
-//                   <h2 className="text-stone-500 text-xl font-bold mb-[25px]">{customer.product || "iPhone 14 pro"}</h2>
-//                   <button onClick={() => this.minusOpen(customer)} className='flex gap-[13px] items-center text-[25px] font-semibold bg-[#FF0004] px-[15px] py-[11px] rounded-[15px]'>
-//                     <CircleMinus /> Qarz ayirish
-//                   </button>
-//                 </div>
-
-//                 <div className='text-center w-[210px] mt-[20px]'>
-//                   <h2 className="text-stone-500 text-xl font-bold mb-[25px]">{customer.loanAmount} so’m</h2>
-//                   <button onClick={() => this.historyOpen(customer)} className='flex gap-[17px] items-center text-[25px] font-semibold border-2 border-[#000] px-[30px] py-[11px] rounded-[15px] text-[#000]'>
-//                     <Clock /> Tarix
-//                   </button>
-//                 </div>
-
-//                 <div className='text-center w-[210px] mt-[20px]'>
-//                   <h2 className="text-stone-500 text-xl font-bold mb-[25px]">{customer.lastDate || "19.09.2025"}</h2>
-//                   <button className='flex gap-[4px] items-center text-[25px] font-semibold bg-[#FFCFCF] px-[15px] py-[11px] rounded-[15px] text-[#FF0000]'>
-//                     {customer.loanAmount > 0 ? "To’lanmagan" : "To’langan"}
-//                   </button>
-//                 </div>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-
-//         {/* --- MODALS --- */}
-//         {showModal && (
-//           <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-//             <div className="bg-white w-full max-w-md rounded-2xl p-5 shadow-xl">
-//               <div className="flex items-center justify-between mb-4">
-//                 <h2 className="text-xl font-semibold">{selectedCustomer ? "Qarz qo’shish" : "Yangi mijoz qo'shish"}</h2>
-//                 <button onClick={this.closeModal} className="text-2xl">×</button>
-//               </div>
-//               <div className="space-y-3">
-//                 {!selectedCustomer && (
-//                   <input type="text" placeholder="Mijoz ismi..." className="w-full p-3 bg-gray-100 rounded-xl outline-none" onChange={e => this.setState({ newCustomerName: e.target.value })} />
-//                 )}
-//                 <input type="number" placeholder="Qarz summasi..." className="w-full p-3 bg-gray-100 rounded-xl outline-none" onChange={e => this.setState({ loanAmount: e.target.value })} />
-//                 <textarea placeholder="Izoh..." className="w-full p-3 bg-gray-100 rounded-xl outline-none" onChange={e => this.setState({ comment: e.target.value })}></textarea>
-//                 <input type="date" className="w-full p-3 bg-gray-100 rounded-xl outline-none" onChange={e => this.setState({ loanDate: e.target.value })} />
-//               </div>
-//               <button
-//                 onClick={selectedCustomer ? this.handleAddLoan : this.handleAddNewCustomer}
-//                 className="w-full mt-5 bg-green-500 p-3 rounded-xl text-white font-semibold text-lg"
-//               >
-//                 Qo’shish
-//               </button>
-//             </div>
-//           </div>
-//         )}
-
-//         {minusModal && selectedCustomer && (
-//           <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-//             <div className="bg-white w-full max-w-md rounded-2xl p-5 shadow-xl">
-//               <div className="flex items-center justify-between mb-4">
-//                 <h2 className="text-xl font-semibold">Qarz ayirish</h2>
-//                 <button onClick={this.minusClose} className="text-2xl">×</button>
-//               </div>
-//               <div className="space-y-3">
-//                 <input type="number" placeholder="Qarz summasi..." className="w-full p-3 bg-gray-100 rounded-xl outline-none" onChange={e => this.setState({ loanAmount: e.target.value })} />
-//                 <textarea placeholder="Izoh..." className="w-full p-3 bg-gray-100 rounded-xl outline-none" onChange={e => this.setState({ comment: e.target.value })}></textarea>
-//                 <input type="date" className="w-full p-3 bg-gray-100 rounded-xl outline-none" onChange={e => this.setState({ loanDate: e.target.value })} />
-//               </div>
-//               <button onClick={this.handleMinusLoan} className="w-full mt-5 bg-green-500 p-3 rounded-xl text-white font-semibold text-lg">Ayirish</button>
-//             </div>
-//           </div>
-//         )}
-
-//         {/* History modal stays unchanged */}
-//         {historyModal && selectedCustomer && (
-//           <div className='fixed inset-0 bg-black/50 z-20 flex items-center justify-center'>
-//             <div className="w-full max-w-4xl bg-white rounded-[40px] p-[15px]">
-//               <div className='flex items-center justify-between mb-[49px]'>
-//                 <h2 className="justify-start text-black text-4xl font-bold">{selectedCustomer.name} - Qarz tarixi</h2>
-//                 <button onClick={this.historyClose} className="text-[50px]">×</button>
-//               </div>
-//               <div>
-//                 {selectedCustomer.history?.map((h, i) => (
-//                   <div key={i} className="flex justify-between items-center mb-3 border-b p-2">
-//                     <span>{h.type === "added" ? "Qo'shildi" : "To'landi"}: {h.amount} so’m</span>
-//                     <span>{h.comment || ""}</span>
-//                     <span>{h.date}</span>
-//                   </div>
-//                 )) || <p>No history yet.</p>}
-//               </div>
-//             </div>
-//           </div>
-//         )}
-//       </div>
-//     );
-//   }
-// }
 
 
 
@@ -1032,6 +788,19 @@ export default class Home extends Component {
               + QARZ QO’SHISH
             </button>
 
+            {/* Search Input */}
+
+            <div className='mt-[30px] flex gap-[30px]'>
+              <input className='max-w-[883px] w-full h-[52px] border-[1px] px-[20px] py-[10px] outline-none rounded-[15px]' type="search" name="" id="" placeholder='Mijoz qidiruv...'/>
+
+              {/* Download and List */}
+
+              <div className='flex gap-[40px]'>
+                <button className='max-w-[164px] w-full h-[52px] bg-[#F5F5F5] rounded-[15px] px-[10px]'><a className='text-[20px]' href="#!">PDF/EXCEL</a></button>
+                <button className='max-w-[191px] w-full h-[52px] bg-[#00D73D] rounded-[15px] px-[10px]'><a className='text-[25px] text-[#fff]' href="#!">QARZDORLAR</a></button>
+              </div>
+            </div>
+
             {customers.map((customer, index) => (
               <div key={index} className='flex justify-between text-[#fff] px-[35px] border-b-2 pb-[25px]'>
 
@@ -1126,7 +895,7 @@ export default class Home extends Component {
                 <h2 className="justify-start text-black text-4xl font-bold">{selectedCustomer.name} - Qarz tarixi</h2>
                 <button onClick={this.historyClose} className="text-[50px]">×</button>
               </div>
-              
+
               {/* TABLE HEADINGS */}
               <div className="flex justify-between border-b-2 p-2 font-bold text-lg">
                 <span>Price</span>
