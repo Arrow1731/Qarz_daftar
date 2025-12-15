@@ -38,7 +38,7 @@
 
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./Pages/Home.jsx";
+import Homes from "./Pages/Home.jsx";
 import Lists from "./Pages/List_Qarz.jsx";
 import Profile from "./Pages/Profile_admin.jsx";
 import Login from "./Pages/Login.jsx";
@@ -54,7 +54,7 @@ function App() {
         <Route path="/Login" element={<Login />} />
         <Route path="/Register" element={<Registering />} />
         <Route path="/Reset_pass" element={<Reset_pass />} />
-        <Route path="/Home" element={<Home />} />
+        <Route path="/Home" element={<Homes />} />
         <Route path="/List_Qarz" element={<Lists />} />
         <Route path="/Loan_alerts" element={<Loan_alert />} />
         <Route path="/Profile_admin" element={<Profile />} />
