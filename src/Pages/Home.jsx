@@ -746,12 +746,13 @@ export default class Home extends Component {
 
   // ADD NEW CUSTOMER
   handleAddNewCustomer = async () => {
-    const { newCustomerName, loanAmount, comment, loanDate } = this.state;
+    const { newCustomerName, stNumber, loanAmount, comment, loanDate } = this.state;
     if (!newCustomerName || !loanAmount || !loanDate) return alert("All fields are required");
 
     await addDoc(collection(db, "customers"), {
       name: newCustomerName,
       loanAmount: parseFloat(loanAmount),
+      stNumber: parseFloat(stNumber),
       history: [{ type: "added", amount: parseFloat(loanAmount), comment, date: loanDate }]
     });
 
@@ -856,6 +857,8 @@ export default class Home extends Component {
                 {!selectedCustomer && (
                   <input type="text" placeholder="Mijoz ismi..." className="w-full p-3 bg-gray-100 rounded-xl outline-none" onChange={e => this.setState({ newCustomerName: e.target.value })} />
                 )}
+                <input type="number" placeholder="Mijoz telefon nomeri..." className="w-full p-3 bg-gray-100 rounded-xl outline-none" onChange={e => this.setState({ stNumber: e.target.value })} />
+                <input type="number" placeholder="Mijoz telefon nomeri..." className="w-full p-3 bg-gray-100 rounded-xl outline-none" onChange={e => this.setState({ loanAmount: e.target.value })} />
                 <input type="number" placeholder="Qarz summasi..." className="w-full p-3 bg-gray-100 rounded-xl outline-none" onChange={e => this.setState({ loanAmount: e.target.value })} />
                 <textarea placeholder="Izoh..." className="w-full p-3 bg-gray-100 rounded-xl outline-none" onChange={e => this.setState({ comment: e.target.value })}></textarea>
                 <input type="date" className="w-full p-3 bg-gray-100 rounded-xl outline-none" onChange={e => this.setState({ loanDate: e.target.value })} />

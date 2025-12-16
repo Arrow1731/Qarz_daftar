@@ -619,8 +619,21 @@ export default class Profile_admin extends Component {
             </div>
 
             <div className="hidden lg:block">
-              <img className="h-[420px]" src={nd_sectionimg} alt="" />
-              <img className="h-[420px] mt-[20px]" src={nd_sectionimg} alt="" />
+              {/* <img className="h-[420px]" src={nd_sectionimg} alt="" />
+              <img className="h-[420px] mt-[20px]" src={nd_sectionimg} alt="" /> */}
+
+              <div>
+                
+                <div className="bg-[#FFFFFF] px-[65px] py-[24px] rounded-[18.47px] border-2 border-[#EFF0F6] text-center mt-[76px]">
+                  <h2 className="text-[25px] font-bold text-[#000000] mb-[35px] ml-[-75%]">Analitikani ko'rish</h2>
+                  <button className="text-[27px] font-extrabold text-[#FFFFFF] px-[27px] py-[21px] bg-[#D1A84B] rounded-[20px] mb-[34px]">Analitoikani diagramma yordamida ko’rish</button>
+                </div>
+                <div className="bg-[#FFFFFF] px-[65px] py-[24px] rounded-[18.47px] border-2 border-[#EFF0F6] text-center mt-[76px]">
+                  <h2 className="text-[25px] font-bold text-[#000000] mb-[35px] ml-[-75%]">Qarz ko’rsatkichlari</h2>
+                  <button className="text-[27px] font-extrabold text-[#FFFFFF] px-[27px] py-[21px] bg-[#D1A84B] rounded-[20px] mb-[34px]">Qarzlarni ko'rish</button>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
