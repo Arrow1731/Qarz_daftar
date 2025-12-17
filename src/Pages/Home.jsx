@@ -778,7 +778,7 @@ export default class Home extends Component {
       <div>
         <Navbar />
 
-        <div className='container font-lato'>
+        <div className='container pt-[70px]'>
           <div className='bg-[#FFFFFF] rounded-[20px] py-[17px] px-[25px]'>
             <h1 className='text-[25px] font-bold text-[#000] text-center'>So’nggi qarzdorlar ro’yxati</h1>
 

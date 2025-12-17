@@ -52,12 +52,153 @@
 
 
 
+// import React, { Component } from 'react';
+// import { createUserWithEmailAndPassword } from "firebase/auth";
+// import { doc, setDoc } from "firebase/firestore";
+// import { auth, db } from "../firebase.js";
+
+// export default class Register extends Component {
+
+//   registerUser = async () => {
+//     const name = document.getElementById("Name_p").value;
+//     const market = document.getElementById("Market_nn").value;
+//     const email = document.getElementById("el_pochta").value;
+//     const password = document.getElementById("passwod_acc").value;
+//     const confirmPassword = document.getElementById("confirm_passwod_acc").value;
+//     const country = document.getElementById("country_select").value;
+//     const language = document.getElementById("language_select").value;
+
+//     if (!name || !market || !email || !password || !confirmPassword) {
+//       alert("Barcha maydonlarni to‘ldiring!");
+//       return;
+//     }
+
+//     if (password !== confirmPassword) {
+//       alert("Parollar mos emas!");
+//       return;
+//     }
+
+//     try {
+//       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+//       const user = userCredential.user;
+
+//       await setDoc(doc(db, "users", user.uid), {
+//         fullName: name,
+//         marketName: market,
+//         email: email,
+//         country: country,
+//         language: language,
+//         uid: user.uid,
+//         createdAt: new Date()
+//       });
+
+//       window.location.href = "/Home";
+
+//     } catch (error) {
+//       alert(error.message);
+//     }
+//   };
+
+//   render() {
+//     return (
+//       <div>
+//         <div>
+//           <div className="container">
+//             <div className='max-w-[641px] w-full h-[1050px] bg-[#fff] rounded-[15px] mt-[122px] m-auto'>
+//               <div className='text-center pt-[50px]'>
+//                 <h2 className='text-[35px] font-bold'>Qarz Daftari</h2>
+//                 <p className='text-[25px]'>Hisob yaratish</p>
+//               </div>
+
+//               {/* Inputs */}
+//               <div className='container px-[93px] py-[50px]'>
+//                 <form action="#!">
+//                   <label className='text-[23px]' htmlFor="name">Ism</label><br />
+//                   <input className='max-w-[486px] w-full h-[50px] py-[10px] px-[24px] border-[2px] rounded-[15px] mt-[15px]' type="text" id="Name_p" placeholder='Ismingizni kiriting' /><br /><br />
+
+//                   <label className='text-[23px]' htmlFor="Market_name">Do’kon nomi</label><br />
+//                   <input className='max-w-[486px] w-full h-[50px] py-[10px] px-[24px] border-[2px] rounded-[15px] mt-[15px]' type="text" id="Market_nn" placeholder='Mini Market' /><br /><br />
+
+//                   <label className='text-[23px]' htmlFor="Email">Elektron pochta</label><br />
+//                   <input className='max-w-[486px] w-full h-[50px] py-[10px] px-[24px] border-[2px] rounded-[15px] mt-[15px]' type="email" id="el_pochta" placeholder='demo123@gmail.com' /><br /><br />
+
+//                   <label className='text-[23px]' htmlFor="password">Parol</label><br />
+//                   <input className='max-w-[486px] w-full h-[50px] py-[10px] px-[24px] border-[2px] rounded-[15px] mt-[15px]' type="password" id="passwod_acc" placeholder='Parolingizni kiriting' /><br />
+
+//                   <label className='text-[23px]' htmlFor="password">Parolni tasdiqlash</label><br />
+//                   <input className='max-w-[486px] w-full h-[50px] py-[10px] px-[24px] border-[2px] rounded-[15px] mt-[15px]' type="password" id="confirm_passwod_acc" placeholder='Parolingizni qayta kiriting' /><br /><br />
+
+//                   {/* Country */}
+//                   <label className='text-[23px]' htmlFor="country">Yashayotgan davlatingiz</label><br />
+//                   <select className='max-w-[486px] w-full h-[50px] py-[10px] px-[24px] border-[2px] rounded-[15px] mt-[15px]' id="country_select">
+//                     <option value="Uzbekistan">Uzbekistan</option>
+//                     <option value="Russia">Russia</option>
+//                     <option value="Turkmenistan">Turkmenistan</option>
+//                     <option value="Kazakistan">Kazakistan</option>
+//                     <option value="Turkiya">Turkiya</option>
+//                     <option value="Xitoy">Xitoy</option>
+//                   </select><br /><br />
+
+//                   {/* Language */}
+//                   <label className='text-[23px]' htmlFor="language">Til</label><br />
+//                   <select className='max-w-[486px] w-full h-[50px] py-[10px] px-[24px] border-[2px] rounded-[15px] mt-[15px]' id="language_select">
+//                     <option value="Uzbek">Uzbek</option>
+//                     <option value="Russian">Russian</option>
+//                     <option value="Turkmen">Turkmen</option>
+//                     <option value="Kazak">Kazak</option>
+//                     <option value="Turk">Turk</option>
+//                     <option value="Xitoy">Xitoy</option>
+//                   </select><br /><br />
+
+//                   {/* Buttons */}
+//                   <div>
+//                     <button
+//                       className=' max-w-[455px] w-full h-[50px] rounded-[15px] border-[2px] border-[#D1A84B] text-[#D1A84B] mt-[22px] text-[23px] text-center py-[5px]'
+//                       type="button"
+//                       onClick={this.registerUser}
+//                     >
+//                       Ro’yxatdan o’tish
+//                     </button>
+//                   </div>
+//                 </form>
+
+//                 <p className='text-center mt-[40px]'>@ 2025 Qarz Daftar  Powered by:  <span className='font-bold'><a href="https://t.me/MAX_V_Coders" target='_blank'>MAX - V</a></span></p>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     )
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import React, { Component } from 'react';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { auth, db } from "../firebase.js";
+import { Eye, EyeOff } from "lucide-react";
 
 export default class Register extends Component {
+
+  state = {
+    showPassword: false,
+    showConfirmPassword: false
+  }
 
   registerUser = async () => {
     const name = document.getElementById("Name_p").value;
@@ -101,69 +242,125 @@ export default class Register extends Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <div className="container">
-            <div className='max-w-[641px] w-full h-[1050px] bg-[#fff] rounded-[15px] mt-[122px] m-auto'>
-              <div className='text-center pt-[50px]'>
-                <h2 className='text-[35px] font-bold'>Qarz Daftari</h2>
-                <p className='text-[25px]'>Hisob yaratish</p>
-              </div>
+      <div className="min-h-screen flex items-center justify-center px-4">
+        <div className="container">
+          <div className='max-w-[641px] w-full bg-[#fff] rounded-[15px] mt-[40px] md:mt-[122px] m-auto'>
 
-              {/* Inputs */}
-              <div className='container px-[93px] py-[50px]'>
-                <form action="#!">
-                  <label className='text-[23px]' htmlFor="name">Ism</label><br />
-                  <input className='max-w-[486px] w-full h-[50px] py-[10px] px-[24px] border-[2px] rounded-[15px] mt-[15px]' type="text" id="Name_p" placeholder='Ismingizni kiriting' /><br /><br />
+            {/* HEADER */}
+            <div className='text-center pt-[40px] md:pt-[50px]'>
+              <h2 className='text-[30px] md:text-[35px] font-bold'>Qarz Daftari</h2>
+              <p className='text-[20px] md:text-[25px]'>Hisob yaratish</p>
+            </div>
 
-                  <label className='text-[23px]' htmlFor="Market_name">Do’kon nomi</label><br />
-                  <input className='max-w-[486px] w-full h-[50px] py-[10px] px-[24px] border-[2px] rounded-[15px] mt-[15px]' type="text" id="Market_nn" placeholder='Mini Market' /><br /><br />
+            {/* FORM */}
+            <div className='px-4 sm:px-[40px] md:px-[93px] py-[40px] md:py-[50px]'>
+              <form action="#!">
 
-                  <label className='text-[23px]' htmlFor="Email">Elektron pochta</label><br />
-                  <input className='max-w-[486px] w-full h-[50px] py-[10px] px-[24px] border-[2px] rounded-[15px] mt-[15px]' type="email" id="el_pochta" placeholder='demo123@gmail.com' /><br /><br />
+                <label className='text-[18px] md:text-[23px]'>Ism</label><br />
+                <input
+                  className='w-full h-[50px] py-[10px] px-[24px] border-[2px] rounded-[15px] mt-[15px]'
+                  type="text"
+                  id="Name_p"
+                  placeholder='Ismingizni kiriting'
+                /><br /><br />
 
-                  <label className='text-[23px]' htmlFor="password">Parol</label><br />
-                  <input className='max-w-[486px] w-full h-[50px] py-[10px] px-[24px] border-[2px] rounded-[15px] mt-[15px]' type="password" id="passwod_acc" placeholder='Parolingizni kiriting' /><br />
+                <label className='text-[18px] md:text-[23px]'>Do’kon nomi</label><br />
+                <input
+                  className='w-full h-[50px] py-[10px] px-[24px] border-[2px] rounded-[15px] mt-[15px]'
+                  type="text"
+                  id="Market_nn"
+                  placeholder='Mini Market'
+                /><br /><br />
 
-                  <label className='text-[23px]' htmlFor="password">Parolni tasdiqlash</label><br />
-                  <input className='max-w-[486px] w-full h-[50px] py-[10px] px-[24px] border-[2px] rounded-[15px] mt-[15px]' type="password" id="confirm_passwod_acc" placeholder='Parolingizni qayta kiriting' /><br /><br />
+                <label className='text-[18px] md:text-[23px]'>Elektron pochta</label><br />
+                <input
+                  className='w-full h-[50px] py-[10px] px-[24px] border-[2px] rounded-[15px] mt-[15px]'
+                  type="email"
+                  id="el_pochta"
+                  placeholder='demo123@gmail.com'
+                /><br /><br />
 
-                  {/* Country */}
-                  <label className='text-[23px]' htmlFor="country">Yashayotgan davlatingiz</label><br />
-                  <select className='max-w-[486px] w-full h-[50px] py-[10px] px-[24px] border-[2px] rounded-[15px] mt-[15px]' id="country_select">
-                    <option value="Uzbekistan">Uzbekistan</option>
-                    <option value="Russia">Russia</option>
-                    <option value="Turkmenistan">Turkmenistan</option>
-                    <option value="Kazakistan">Kazakistan</option>
-                    <option value="Turkiya">Turkiya</option>
-                    <option value="Xitoy">Xitoy</option>
-                  </select><br /><br />
+                {/* PASSWORD */}
+                <label className='text-[18px] md:text-[23px]'>Parol</label><br />
+                <div className="relative mt-[15px]">
+                  <input
+                    className='w-full h-[50px] py-[10px] px-[24px] border-[2px] rounded-[15px] pr-[55px]'
+                    type={this.state.showPassword ? "text" : "password"}
+                    id="passwod_acc"
+                    placeholder='Parolingizni kiriting'
+                  />
+                  <button
+                    type="button"
+                    onClick={() => this.setState({ showPassword: !this.state.showPassword })}
+                    className="absolute right-[18px] top-1/2 -translate-y-1/2 text-gray-500"
+                  >
+                    {this.state.showPassword ? <EyeOff size={22} /> : <Eye size={22} />}
+                  </button>
+                </div><br />
 
-                  {/* Language */}
-                  <label className='text-[23px]' htmlFor="language">Til</label><br />
-                  <select className='max-w-[486px] w-full h-[50px] py-[10px] px-[24px] border-[2px] rounded-[15px] mt-[15px]' id="language_select">
-                    <option value="Uzbek">Uzbek</option>
-                    <option value="Russian">Russian</option>
-                    <option value="Turkmen">Turkmen</option>
-                    <option value="Kazak">Kazak</option>
-                    <option value="Turk">Turk</option>
-                    <option value="Xitoy">Xitoy</option>
-                  </select><br /><br />
+                {/* CONFIRM PASSWORD */}
+                <label className='text-[18px] md:text-[23px]'>Parolni tasdiqlash</label><br />
+                <div className="relative mt-[15px]">
+                  <input
+                    className='w-full h-[50px] py-[10px] px-[24px] border-[2px] rounded-[15px] pr-[55px]'
+                    type={this.state.showConfirmPassword ? "text" : "password"}
+                    id="confirm_passwod_acc"
+                    placeholder='Parolingizni qayta kiriting'
+                  />
+                  <button
+                    type="button"
+                    onClick={() => this.setState({ showConfirmPassword: !this.state.showConfirmPassword })}
+                    className="absolute right-[18px] top-1/2 -translate-y-1/2 text-gray-500"
+                  >
+                    {this.state.showConfirmPassword ? <EyeOff size={22} /> : <Eye size={22} />}
+                  </button>
+                </div><br /><br />
 
-                  {/* Buttons */}
-                  <div>
-                    <button
-                      className=' max-w-[455px] w-full h-[50px] rounded-[15px] border-[2px] border-[#D1A84B] text-[#D1A84B] mt-[22px] text-[23px] text-center py-[5px]'
-                      type="button"
-                      onClick={this.registerUser}
-                    >
-                      Ro’yxatdan o’tish
-                    </button>
-                  </div>
-                </form>
+                {/* COUNTRY */}
+                <label className='text-[18px] md:text-[23px]'>Yashayotgan davlatingiz</label><br />
+                <select
+                  className='w-full h-[50px] py-[10px] px-[24px] border-[2px] rounded-[15px] mt-[15px]'
+                  id="country_select"
+                >
+                  <option value="Uzbekistan">Uzbekistan</option>
+                  <option value="Russia">Russia</option>
+                  <option value="Turkmenistan">Turkmenistan</option>
+                  <option value="Kazakistan">Kazakistan</option>
+                  <option value="Turkiya">Turkiya</option>
+                  <option value="Xitoy">Xitoy</option>
+                </select><br /><br />
 
-                <p className='text-center mt-[40px]'>@ 2025 Qarz Daftar  Powered by:  <span className='font-bold'><a href="https://t.me/MAX_V_Coders" target='_blank'>MAX - V</a></span></p>
-              </div>
+                {/* LANGUAGE */}
+                <label className='text-[18px] md:text-[23px]'>Til</label><br />
+                <select
+                  className='w-full h-[50px] py-[10px] px-[24px] border-[2px] rounded-[15px] mt-[15px]'
+                  id="language_select"
+                >
+                  <option value="Uzbek">Uzbek</option>
+                  <option value="Russian">Russian</option>
+                  <option value="Turkmen">Turkmen</option>
+                  <option value="Kazak">Kazak</option>
+                  <option value="Turk">Turk</option>
+                  <option value="Xitoy">Xitoy</option>
+                </select><br /><br />
+
+                {/* BUTTON */}
+                <button
+                  type="button"
+                  onClick={this.registerUser}
+                  className='w-full h-[50px] rounded-[15px] border-[2px] border-[#D1A84B] text-[#D1A84B] mt-[22px] text-[20px] md:text-[23px]'
+                >
+                  Ro’yxatdan o’tish
+                </button>
+
+              </form>
+
+              <p className='text-center mt-[40px] text-[14px] md:text-[16px]'>
+                @ 2025 Qarz Daftar Powered by:
+                <span className='font-bold'>
+                  <a href="https://t.me/MAX_V_Coders" target='_blank' rel="noreferrer"> MAX - V</a>
+                </span>
+              </p>
             </div>
           </div>
         </div>
