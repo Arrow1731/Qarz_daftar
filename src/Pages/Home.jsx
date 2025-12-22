@@ -1175,7 +1175,7 @@ export default class Home extends Component {
           <div className="grid grid-cols-5 bg-gray-100 pl-[20px] py-[20px] font-bold">
             <div>ISM</div>
             <div>TELEFON</div>
-            <div>IZOH</div>
+            <div>Sana</div>
             <div>QARZ  SUMMASI</div>
             <div>HOLAT</div>
             {/* <div>AMALLAR</div> */}
@@ -1184,13 +1184,13 @@ export default class Home extends Component {
           {this.state.filteredCustomers.map((c) => (
             <div
               key={c.id}
-              className="bg-white rounded-xl p-4 mb-4 flex flex-col md:flex-row justify-between gap-4"
+              className="bg-white rounded-xl p-4 mb-4  md:flex-row justify-between gap-4"
             >
-              <div className="flex gap-[210px]">
-                <h2 className="font-bold">{c.name}</h2>
-                <p>{c.phone}</p>
-                <p>{c.lastDate}</p>
-                <p>{c.loanAmount} so‘m</p>
+              <div className="flex gap-[100px]">
+                <h2 className="font-bold w-[102px] mr-[75px]">{c.name}</h2>
+                <p className="w-[186px]">{c.phone}</p>
+                <p className="ml-[-20px] w-[124px] mr-[110px]">{c.lastDate}</p>
+                <p className="w-[124px]">{c.loanAmount} so‘m</p>
                 <p
                   className={`font-bold ${c.status === "paid" ? "text-green-600" : "text-red-600"
                     }`}
@@ -1199,24 +1199,24 @@ export default class Home extends Component {
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="flex mt-[25px] gap-2 ">
                 <button
                   onClick={() => this.markPaid(c)}
-                  className="bg-green-500 text-white px-4 py-2 rounded-xl flex items-center gap-1"
+                  className="bg-green-500 text-white mr-[200px] ml-[200px] px-4 py-2 rounded-xl flex items-center gap-1"
                 >
                   <Check size={18} /> To‘landi
                 </button>
 
                 <button
                   onClick={() => this.openPlus(c)}
-                  className="bg-blue-500 text-white px-4 py-2 rounded-xl flex items-center gap-1"
+                  className="bg-blue-500  mr-[200px] text-white px-4 py-2 rounded-xl flex items-center gap-1"
                 >
                   <Plus size={18} /> Qarz qo‘shish
                 </button>
 
                 <button
                   onClick={() => this.openMinus(c)}
-                  className="bg-red-500 text-white px-4 py-2 rounded-xl flex items-center gap-1"
+                  className="bg-red-500  mr-[160px] text-white px-4 py-2 rounded-xl flex items-center gap-1"
                 >
                   <CircleMinus size={18} /> Qarz ayirish
                 </button>

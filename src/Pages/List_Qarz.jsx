@@ -954,6 +954,14 @@ export default class List_Qarz extends Component {
     debts: [],
   };
 
+   /* ================= EXCEL ================= */
+  exportExcel = () => {
+    const ws = XLSX.utils.json_to_sheet(this.state.customers);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Customers");
+    XLSX.writeFile(wb, "Qarzdorlar_List.xlsx");
+  };
+
   async componentDidMount() {
     const q = query(collection(db, "qarzlar"), orderBy("createdAt", "desc"));
     const snapshot = await getDocs(q);
@@ -985,9 +993,12 @@ export default class List_Qarz extends Component {
 
             {/* TOP BUTTONS */}
             <div className="flex flex-wrap gap-3 mt-8 justify-between">
-              <button className="flex items-center gap-2 bg-[#F5F5F5] py-3 px-4 rounded-[15px]">
-                <Download /> PDF / Excel
-              </button>
+              <button
+              onClick={this.exportExcel}
+              className="bg-gray-200 p-3 rounded-[15px] w-[160px] h-[50px]"
+            >
+              PDF / EXCEL
+            </button>
 
               <button className="bg-[#00D73D] text-white px-4 py-3 rounded-[15px]">
                 Ogohlantirish
@@ -1019,6 +1030,10 @@ export default class List_Qarz extends Component {
               <div className="min-w-[1100px]">
 
                 {/* HEADER */}
+
+                <div>
+
+               
                 <div className="bg-neutral-100 rounded-[10px] px-6 py-3 flex justify-between font-bold text-stone-500">
                   <div className="w-[150px]">ISM</div>
                   <div className="w-[200px]">TELEFON</div>
@@ -1026,7 +1041,8 @@ export default class List_Qarz extends Component {
                   <div className="w-[160px]">QARZ</div>
                   <div className="w-[200px]">HOLATI</div>
                 </div>
-
+                
+ </div>
                 {/* ROWS */}
                 {debts.map((d) => (
                   <div
