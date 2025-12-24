@@ -6,6 +6,8 @@ import Login from "./Pages/Login.jsx";
 import Registering from "./Pages/Register.jsx";
 import Reset_pass from "./Pages/Reset_pass.jsx";
 import Loan_alert from "./Pages/Loan_alerts.jsx";
+import Analytics from "./Pages/AnalyticsP.jsx";
+import TAble_Pic from "./Pages/Pic_Table.jsx";
 import NotFound from "./Pages/NotFound.jsx";
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
         <Route path="/Home" element={<Homes />} />
         <Route path="/List_Qarz" element={<Lists />} />
         <Route path="/Loan_alerts" element={<Loan_alert />} />
+        <Route path="/AnalyticsP" element={<Analytics />} />
+        <Route path="/Pic_Table" element={<TAble_Pic />} />
         <Route path="/Profile_admin" element={<Profile />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
