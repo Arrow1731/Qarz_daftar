@@ -1270,6 +1270,7 @@ export default class Home extends Component {
                         </div>
                       </>
                     )}
+                      <div className="flex gap-[44px] mt-[25px]">
 
                     <label htmlFor="QARZ">Qarz summasi</label><br /><br />
                     <input
@@ -1290,14 +1291,19 @@ export default class Home extends Component {
                       }
                     /> <br />
 
+                      </div>
+
+                      <div className="flex gap-[44px] mt-[25px]">
+
                     <label htmlFor="COM">Izoh</label><br /><br />
                     <textarea
-                      className="input border-[2px] rounded-[15px] max-w-[400px] w-full h-[60px] px-[20px]"
+                      className="input border-[2px] rounded-[15px] w-full h-[100px] px-[20px]"
                       placeholder="Izoh"
                       onChange={(e) =>
                         this.setState({ comment: e.target.value })
                       }
                     /> <br />
+                      </div>
 
                     <button
                       onClick={
